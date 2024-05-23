@@ -1,0 +1,126 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title d-flex justify-content-between text-align-center">
+          <h4 class="page-title ">Angular Built-In && Custom Pipes && Directives</h4>
+        </div>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Date Pipe
+            <br>
+            <span>
+              {{date}} - {{date | date:'short'}}
+            </span>
+            <br>
+            <span>{{date}} - {{date | date:'fullDate'}}</span>
+            <br>
+            <span>{{date}} - {{date | date:'medium'}}</span> <br>
+            <span>{{date}} - {{date | date:'mm:ss'}}</span>
+          </li>
+
+          <br>
+
+          <li>UpperCase Pipe
+            <br>
+            <span>
+              {{title}} - {{title | uppercase}}
+            </span>
+          </li>
+
+          <br>
+
+          <li>LowerCasePipe
+            <br>
+            <span>
+              {{title | uppercase}} - {{title | lowercase}}
+            </span>
+          </li>
+
+          <br>
+
+          <li>Currency Pipe
+            <br>
+            <span>
+              {{num}} - {{num | currency}}
+            </span>
+          </li>
+
+          <br>
+
+          <li>Percent Pipe
+            <br>
+            <span>
+              {{num}} - {{num | percent}}
+            </span>
+          </li>
+
+          <br>
+
+          <li>Decimal Pipe
+            <br>
+            <span>
+              {{num2}} - {{num2 | number:'1.2-2'}}
+            </span>
+          </li>
+
+          <br>
+
+          <li>Slice Pipe
+            <br>
+            <span>
+              {{title}} - {{title | slice:7:12}}
+            </span>
+          </li>
+
+          <br>
+
+          <li>TitleCase Pipe
+            <br>
+            <span>
+              {{title}} - {{title | titlecase}}
+            </span>
+          </li>
+
+          <br>
+
+          <li>Json Pipe
+            <br>
+            <span>
+              {{title}} - {{title | json}}
+            </span>
+            <br>
+            <span>
+              {{num}} - {{num | json}}
+            </span>
+          </li>
+        </ol>
+
+        <br><br><br>
+        <app-form-content></app-form-content>
+
+        <br><br><br>
+        <div>
+          <h3>*** Translate Pipe ***</h3>
+        </div>
+        <br>
+        <div>
+          <h3>Book: {{"Book" | translate: "TR" }}</h3><br>
+          <h3>Car: {{"Car" | translate: "TR" }}</h3><br>
+          <h3>Translate: {{"Translate" | translate: "TR" }}</h3><br>
+          <h3>Snow: {{"Snow" | translate: "TR" }}</h3><br>
+
+          <div *appWelcome=5000>
+            <h3>*** AppWelcome Directive ***</h3>
+            <h3>Welcome</h3>
+          </div>
+          <div>
+            <h3>*** AppMultiple Directive ***</h3>
+          </div>
+          <div *appMultiple=5> Bu yazı 5 defa yazılacak mı?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
