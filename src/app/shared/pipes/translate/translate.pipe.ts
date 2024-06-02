@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Pipe, PipeTransform } from '@angular/core';
 import { TranslateService } from './translate.service';
-import { ILocalization, Lang, Localization } from '../../../localization/localization';
+import { Localization } from '../../../localization/localization';
 
 
 
@@ -11,9 +11,9 @@ import { ILocalization, Lang, Localization } from '../../../localization/localiz
 })
 export class TranslatePipe implements PipeTransform {
 
-  private translatedText: string="";
-  private lastText: string="";
-  private lastLang: string="";
+  private translatedText: string = "";
+  private lastText: string = "";
+  private lastLang: string = "";
 
   constructor(private translateService: TranslateService,
     private change: ChangeDetectorRef,

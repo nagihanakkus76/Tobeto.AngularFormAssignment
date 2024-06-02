@@ -1,11 +1,9 @@
-import { AfterContentChecked, AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductModel } from '../../models/product-model';
 import { ProductsService } from '../../services/products.service';
 import { PopupDeleteComponent } from '../../../../shared/popup-delete/popup-delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RouterLink } from '@angular/router';
-import { ProductsWithCategories } from '../../models/products-with-categories.model';
-import { CategoryJoinModel } from '../../../../features/categories/models/category-join-model';
 import { CategoriesService } from '../../../categories/services/categories.service';
 import { CategoryModel } from '../../../categories/models/category-model';
 
@@ -18,9 +16,9 @@ import { CategoryModel } from '../../../categories/models/category-model';
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class ProductsTableComponent implements OnInit,AfterContentChecked {
+export class ProductsTableComponent implements OnInit {
   productList: ProductModel[] = [];
-  categoryList:CategoryModel[]=[];
+  categoryList: CategoryModel[] = [];
   joinedData: any[] = [];
 
   constructor(
@@ -29,17 +27,10 @@ export class ProductsTableComponent implements OnInit,AfterContentChecked {
     private change: ChangeDetectorRef,
     public popup: MatDialog,
   ) { }
-  ngAfterContentChecked(): void {
 
-
-  }
-  ngAfterContentInit(): void {
-
-  }
 
   ngOnInit(): void {
     this.getList();
-
 
     // let products: ProductModel[]=[];
     // this.productsService.getList().subscribe((res) => {
@@ -47,10 +38,7 @@ export class ProductsTableComponent implements OnInit,AfterContentChecked {
     //   this.change.markForCheck();
 
     // });
-
-
     // let categories: CategoryModel[]=[];
-
 
   }
 
@@ -62,13 +50,12 @@ export class ProductsTableComponent implements OnInit,AfterContentChecked {
 
     this.categoryService.getList().subscribe((res) => {
       this.categoryList = res;
-    this.productList = joinTables(this.productList,this.categoryList);
+      this.productList = joinTables(this.productList, this.categoryList);
 
       this.change.markForCheck();
     });
 
   }
-
 
   deleteProduct(id: number) {
     this.productsService.delete(id).subscribe();
@@ -92,16 +79,11 @@ export class ProductsTableComponent implements OnInit,AfterContentChecked {
   }
 }
 
-
-
-
-
-
 function joinTables(table1: ProductModel[], table2: CategoryModel[]): ProductModel[] {
   return table1.map(item1 => {
     const item2 = table2.find(item2 => item2.id === item1.categoryId);
 
-    item1.category=item2;
+    item1.category = item2;
     return item1;
   });
 }

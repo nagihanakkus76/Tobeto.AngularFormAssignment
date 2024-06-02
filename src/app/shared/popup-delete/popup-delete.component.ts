@@ -1,4 +1,4 @@
-import { Component, Inject, Output, EventEmitter  } from '@angular/core';
+import { Component, Inject, Output, EventEmitter } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -10,15 +10,15 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 
 export class PopupDeleteComponent {
-@Output() confirm = new EventEmitter<boolean>();
+  @Output() confirm = new EventEmitter<boolean>();
 
-constructor(@Inject(MAT_DIALOG_DATA) public data:any){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onYesClick(){
+  onYesClick() {
     this.confirm.emit(true)
   }
 
-  onNoClick(){
+  onNoClick() {
     this.confirm.emit(false)
   }
 }

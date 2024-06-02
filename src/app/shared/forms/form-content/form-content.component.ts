@@ -5,34 +5,31 @@ import { AppButtonDirective } from '../../directives/buttons/app-button.directiv
 
 
 @Component({
-    selector: 'app-form-content',
-    standalone: true,
-    templateUrl: './form-content.component.html',
-    styleUrl: './form-content.component.scss',
-    imports: [ReactiveFormsModule, FormControlErrorMessagePipe,AppButtonDirective]
+  selector: 'app-form-content',
+  standalone: true,
+  templateUrl: './form-content.component.html',
+  styleUrl: './form-content.component.scss',
+  imports: [ReactiveFormsModule, FormControlErrorMessagePipe, AppButtonDirective]
 })
 export class FormContentComponent {
-  message:string | null="";
-  myForm! : FormGroup;
+  message: string | null = "";
+  myForm!: FormGroup;
   constructor(
-private formBuilder:FormBuilder,
-  ){
+    private formBuilder: FormBuilder,
+  ) {
     this.myForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
+  submit() {
+    if (!this.myForm.errors) {
+      this.message = this.myForm.errors;
+    } else {
+      this.message = "Not Invalid Input";
+    }
 
-
-  submit(){
-if (!this.myForm.errors) {
-  this.message= this.myForm.errors;
-}else{
-  this.message="Not Invalid Input";
-}
-
-  return console.log(this.message)
+    return console.log(this.message)
   }
-
 }

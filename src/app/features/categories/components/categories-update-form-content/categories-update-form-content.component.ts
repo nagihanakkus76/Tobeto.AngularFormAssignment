@@ -36,15 +36,12 @@ export class CategoriesUpdateFormContentComponent implements OnInit {
     this.getCategoryById();
   }
 
-
-
   private createForm(): void {
     this.categoryFormGroup = this.formBuilder.group({
       name: [""],
       description: [""]
     })
   }
-
 
   getCategoryIdFromRoute() {
     this.route.params

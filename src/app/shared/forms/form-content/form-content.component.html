@@ -1,27 +1,31 @@
 <form [formGroup]="myForm" (ngSubmit)="submit()">
-  <div> <h3>*** FormControlErrorMessage  && AppButton Directive ***</h3></div>
+  <div>
+    <h3>*** FormControlErrorMessage && AppButton Directive ***</h3>
+  </div>
   <div>
     <label for="email">Email</label>
     <br>
-      <input  class="w-50" id="email" formControlName="email" />
-      @if (myForm.get('email') && myForm.get('email')!.invalid && (myForm.get('email')!.dirty || myForm.get('email')!.touched)) {
-        <div>
-          {{ myForm.get('email') | formControlErrorMessage }}
-        </div>
-      }
-    </div>
-<br>
+    <input class="w-50" id="email" formControlName="email" />
+    @if (myForm.get('email') && myForm.get('email')!.invalid && (myForm.get('email')!.dirty ||
+    myForm.get('email')!.touched)) {
     <div>
-      <label for="password">Password</label>
-      <br>
-        <input class="w-50" id="password" formControlName="password" type="password" />
-        @if (myForm.get('password') && myForm.get('password')!.invalid && (myForm.get('password')!.dirty || myForm.get('password')!.touched)) {
-          <div>
-            {{ myForm.get('password') | formControlErrorMessage }}
-          </div>
-        }
-      </div>
-      <br>
-      <!-- TODO buton stili directive yapınca buttona ekle -->
-      <button appButton class="d-flex justify-content-end" type="submit">Submit</button>
-    </form>
+      {{ myForm.get('email') | formControlErrorMessage }}
+    </div>
+    }
+  </div>
+  <br>
+  <div>
+    <label for="password">Password</label>
+    <br>
+    <input class="w-50" id="password" formControlName="password" type="password" />
+    @if (myForm.get('password') && myForm.get('password')!.invalid && (myForm.get('password')!.dirty ||
+    myForm.get('password')!.touched)) {
+    <div>
+      {{ myForm.get('password') | formControlErrorMessage }}
+    </div>
+    }
+  </div>
+  <br>
+  <!-- TODO buton stili directive yapınca buttona ekle -->
+  <button appButton class="d-flex justify-content-end" type="submit">Submit</button>
+</form>

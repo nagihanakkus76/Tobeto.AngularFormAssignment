@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CategoriesService } from '../../services/categories.service';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CategoryModel } from '../../models/category-model';
@@ -13,12 +13,16 @@ import { Router } from '@angular/router';
 })
 export class CategoryAddedFormContentComponent implements OnInit {
 
+
   categoryFormGroup!: FormGroup;
   constructor(
     private categoryService: CategoriesService,
     private formBuilder: FormBuilder,
-    private router:Router
+    private router: Router
   ) { }
+
+
+
   ngOnInit(): void {
     this.createForm()
   }

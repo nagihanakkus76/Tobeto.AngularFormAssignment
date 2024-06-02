@@ -2,24 +2,22 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-       <h4 class="page-title">Kategori Güncelle</h4>
+        <h4 class="page-title">Kategori Güncelle</h4>
 
       </div>
       <div class="card-body">
 
-        <form [formGroup]="categoryFormGroup" (submit)="updateForm()" >
+        <form [formGroup]="categoryFormGroup" (submit)="updateForm()">
 
           <label>Kategori</label>
-          <input type="text"  class="form-control" formControlName="name" />
+          <input type="text" class="form-control" formControlName="name" />
           <br />
 
           <label>Açıklama</label>
-          <input type="text"  class="form-control" formControlName="description" />
+          <input type="text" class="form-control" formControlName="description" />
           <br />
 
-
-
-          <button type="submit" class="btn btn-warning" style="color: white;" >Güncelle</button>
+          <button type="submit" class="btn btn-warning" style="color: white;">Güncelle</button>
         </form>
 
       </div>

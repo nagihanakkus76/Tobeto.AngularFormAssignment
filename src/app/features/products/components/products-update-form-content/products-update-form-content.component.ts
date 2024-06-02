@@ -4,7 +4,6 @@ import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -27,8 +26,7 @@ export class ProductsUpdateFormContentComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductsService,
     private change: ChangeDetectorRef,
-  ) {}
-
+  ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -37,17 +35,14 @@ export class ProductsUpdateFormContentComponent implements OnInit {
     this.getProductById();
   }
 
-
-
   private createForm(): void {
     this.productFormGroup = this.formBuilder.group({
       name: [""],
-      unitPrice:[""],
-      unitsInStock:[""],
-      categoryId:[""]
+      unitPrice: [""],
+      unitsInStock: [""],
+      categoryId: [""]
     })
   }
-
 
   getProductIdFromRoute() {
     this.route.params
@@ -71,27 +66,27 @@ export class ProductsUpdateFormContentComponent implements OnInit {
     })
   }
 
-  private setFormData(){
+  private setFormData() {
     this.productFormGroup.patchValue({
       name: this.productById.name,
-      unitPrice:this.productById.unitPrice,
-      unitsInStock:this.productById.unitsInStock,
+      unitPrice: this.productById.unitPrice,
+      unitsInStock: this.productById.unitsInStock,
       categoryId: this.productById.categoryId
     });
   }
 
   updateForm() {
-    let productModelData:ProductModel = {
+    let productModelData: ProductModel = {
       id: this.productById.id,
-      name:this.productFormGroup.value.name,
-      unitPrice:this.productFormGroup.value.unitPrice,
-      unitsInStock:this.productFormGroup.value.unitsInStock,
-      categoryId:this.productFormGroup.value.categoryId
+      name: this.productFormGroup.value.name,
+      unitPrice: this.productFormGroup.value.unitPrice,
+      unitsInStock: this.productFormGroup.value.unitsInStock,
+      categoryId: this.productFormGroup.value.categoryId
 
     }
-this.productService.update(productModelData).subscribe((res)=>{
-this.router.navigate(["/products"]);
-});
+    this.productService.update(productModelData).subscribe((res) => {
+      this.router.navigate(["/products"]);
+    });
   }
 }
 

@@ -7,27 +7,25 @@
       </div>
       <div class="card-body">
 
-        <form [formGroup]="productFormGroup" (submit)="updateForm()" >
+        <form [formGroup]="productFormGroup" (submit)="updateForm()">
 
           <label>Ürün</label>
-          <input type="text"  class="form-control" formControlName="name" />
+          <input type="text" class="form-control" formControlName="name" />
           <br />
 
           <label>Kategori Adı</label>
-          <input type="text"  class="form-control" formControlName="categoryId" />
+          <input type="text" class="form-control" formControlName="categoryId" />
           <br />
 
           <label>Birim Fiyat</label>
-          <input type="text"  class="form-control" formControlName="unitPrice" />
+          <input type="text" class="form-control" formControlName="unitPrice" />
           <br />
 
           <label>Stok</label>
-          <input type="text"  class="form-control" formControlName="unitsInStock" />
+          <input type="text" class="form-control" formControlName="unitsInStock" />
           <br />
 
-
-
-          <button type="submit" class="btn btn-warning" style="color: white;" >Güncelle</button>
+          <button type="submit" class="btn btn-warning" style="color: white;">Güncelle</button>
         </form>
 
       </div>

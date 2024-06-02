@@ -19,5 +19,4 @@ export class AppWelcomeDirective {
       this.viewContainer.clear();
     }, delay);
   }
-
 }

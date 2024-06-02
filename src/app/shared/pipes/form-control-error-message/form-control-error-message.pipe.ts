@@ -7,7 +7,7 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 })
 export class FormControlErrorMessagePipe implements PipeTransform {
 
-  transform(control:AbstractControl | null): string | null {
+  transform(control: AbstractControl | null): string | null {
     if (!control || !control.errors) {
       return null;
     }
@@ -25,7 +25,7 @@ export class FormControlErrorMessagePipe implements PipeTransform {
     } else if (errors['pattern']) {
       return 'Invalid format';
     }
-      return "Invalid Input";
+    return "Invalid Input";
   }
 
 }

@@ -1,4 +1,4 @@
-import { Directive , HostBinding, HostListener} from '@angular/core';
+import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appButton]',
@@ -12,7 +12,7 @@ export class AppButtonDirective {
   @HostBinding('style.border') border = 'none';
   @HostBinding('style.background') background = 'linear-gradient(45deg, #2196F3, #00BCD4)';
   @HostBinding('style.color') color = 'white';
-  @HostBinding('style.borderRadius') borderRadius ='15px';
+  @HostBinding('style.borderRadius') borderRadius = '15px';
   @HostBinding('style.fontFamily') fontFamily = 'Arial';
   @HostBinding('style.cursor') cursor = 'pointer';
   @HostBinding('style.boxShadow') boxShadow = '0 4px 8px rgba(0,0,0,0.2)';

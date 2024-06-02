@@ -18,9 +18,9 @@ export class ProductAddedFormContentComponent implements OnInit {
   productFormGroup!: FormGroup;
   constructor(
     private productService: ProductsService,
-    private categoryService:CategoriesService,
+    private categoryService: CategoriesService,
     private formBuilder: FormBuilder,
-    private router:Router
+    private router: Router
   ) { }
   ngOnInit(): void {
     this.createForm()
@@ -29,18 +29,18 @@ export class ProductAddedFormContentComponent implements OnInit {
   private createForm(): void {
     this.productFormGroup = this.formBuilder.group({
       name: [""],
-      categoryId:[""],
-      unitPrice:[""],
-      unitsInStock:[""]
+      categoryId: [""],
+      unitPrice: [""],
+      unitsInStock: [""]
     })
   }
 
   addedForm() {
     let productModelData: ProductModel = {
       name: this.productFormGroup.value.name,
-      categoryId:Number(this.productFormGroup.value.categoryId),
-      unitPrice:this.productFormGroup.value.unitPrice,
-      unitsInStock:this.productFormGroup.value.unitsInStock
+      categoryId: Number(this.productFormGroup.value.categoryId),
+      unitPrice: this.productFormGroup.value.unitPrice,
+      unitsInStock: this.productFormGroup.value.unitsInStock
     }
 
     this.productService.added(productModelData).subscribe((res) => {

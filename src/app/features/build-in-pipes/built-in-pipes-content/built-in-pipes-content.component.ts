@@ -13,8 +13,8 @@ import { AppWelcomeDirective } from '../../../shared/directives/structurals/app-
   standalone: true,
   templateUrl: './built-in-pipes-content.component.html',
   styleUrl: './built-in-pipes-content.component.scss',
-  imports: [CommonModule, FormContentComponent, ReactiveFormsModule, TranslatePipe,AppNoCharacterInputDirective,AppMultipleDirective,
- AppWelcomeDirective  ],
+  imports: [CommonModule, FormContentComponent, ReactiveFormsModule, TranslatePipe, AppNoCharacterInputDirective, AppMultipleDirective,
+    AppWelcomeDirective],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -24,8 +24,5 @@ export class BuiltInPipesContentComponent {
   @Input() num: number = 23.95;
   @Input() num2: number = 245;
 
-  constructor() {}
-
-
-
+  constructor() { }
 }

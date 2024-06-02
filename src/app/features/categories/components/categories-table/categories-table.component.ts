@@ -15,45 +15,45 @@ import { PopupDeleteComponent } from '../../../../shared/popup-delete/popup-dele
 })
 export class CategoriesTableComponent implements OnInit {
 
-categoryList: CategoryModel[]=[];
+  categoryList: CategoryModel[] = [];
 
-constructor(
-  private categoriesService:CategoriesService,
-  private change: ChangeDetectorRef,
-  public popup:MatDialog,
-  private router:Router
-){}
+  constructor(
+    private categoriesService: CategoriesService,
+    private change: ChangeDetectorRef,
+    public popup: MatDialog,
+    private router: Router
+  ) { }
 
-ngOnInit(): void {
-  this.getList()
+  ngOnInit(): void {
+    this.getList()
 
-}
+  }
 
-getList(){
-this.categoriesService.getList().subscribe((res)=>{
-  this.categoryList = res;
-  this.change.markForCheck();
-});
-}
+  getList() {
+    this.categoriesService.getList().subscribe((res) => {
+      this.categoryList = res;
+      this.change.markForCheck();
+    });
+  }
 
-deleteCategory(id:number){
-this.categoriesService.delete(id).subscribe();
-}
+  deleteCategory(id: number) {
+    this.categoriesService.delete(id).subscribe();
+  }
 
-showDeletePopup(id:number){
-const popupRef = this.popup.open(PopupDeleteComponent,{
-    data:{
-      baslik:"Uyarı!",
-      message:"Silme işlemini gerçekleştirmek istiyor musunuz?",
-    }
-  });
+  showDeletePopup(id: number) {
+    const popupRef = this.popup.open(PopupDeleteComponent, {
+      data: {
+        baslik: "Uyarı!",
+        message: "Silme işlemini gerçekleştirmek istiyor musunuz?",
+      }
+    });
 
-  popupRef.componentInstance.confirm.subscribe((res)=>{
-    if (res) {
-      this.deleteCategory(id);
-      window.location.reload();
-    }
+    popupRef.componentInstance.confirm.subscribe((res) => {
+      if (res) {
+        this.deleteCategory(id);
+        window.location.reload();
+      }
       this.popup.closeAll()
-  })
-}
+    })
+  }
 }
